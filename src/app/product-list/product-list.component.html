@@ -1,0 +1,33 @@
+<div class="productDiv">
+  <h3>List of Products</h3>
+  <div id="productList">
+    <div *ngFor="let data of productList" class="outerDiv">
+      <div class='img-box'>
+        <img class='images' [src]="data.image">
+      </div>
+      <div class='bottom'>
+        <div class="productname">{{data.name}}</div>
+        <div class="productprice">Price:  <span> Rs. {{data.price}}</span></div>
+        <button (click)=addtocart(data)>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="productDiv">
+  <h3>List of Products</h3>
+  <div id="productList">
+    <div *ngFor="let data of productList" class="outerDiv">
+      <mat-card class="product-card">
+        <div class="img-box">
+          <img class="images" [src]="data.image" alt="Product Image">
+        </div>
+        <div class="bottom">
+          <div class="productname">{{ data.name }}</div>
+          <div class="productprice">Price: <span>Rs. {{ data.price }}</span></div>
+          <button mat-button (click)="addtocart(data)">Add to Cart</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div> -->

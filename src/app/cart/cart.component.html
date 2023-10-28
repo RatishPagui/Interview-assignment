@@ -1,0 +1,86 @@
+<ng-container *ngIf="cartData.length !=0">
+    <div id="cartDiv">
+        <div class="sidebar">
+            <div class="head">
+                <p>My Cart</p>
+            </div>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartData; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.product.name}}</td>
+                        <td style="display: flex;justify-content: center;padding: 15px 0 ;">
+                            <div class='row-img'>
+                                <img class='rowimg' [src]="item.product.image">
+                            </div>
+                        </td>
+                        <th style="width: 12%;">{{item.product.price}}</th>
+                        <td style="width: 12%;">
+                            <input *ngIf="item.product.id === inputfield; else inputDisabled" [(ngModel)]="item.count"
+                                (input)="onInputChange1(item)">
+                        </td>
+                        <ng-template #inputDisabled>
+                            <input [disabled]="true" [(ngModel)]="item.count" (input)="onInputChange1(item)">
+                        </ng-template>
+                        <td style="width: 12%;">{{item.totalPrice}}</td>
+                        <td>
+                            <span matTooltip="Add">
+                                <i (click)="setEditable(item.product.id)" class="fa-solid fa-plus"></i>
+                            </span>
+                            <span matTooltip="Update">
+                                <i (click)="updateData()" class="fa-solid fa-pen-to-square"></i>
+                            </span>
+                            <span matTooltip="Delete">
+                                <i (click)="removeItem(item.product)" class="fa-solid fa-trash"></i>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="foot">
+                <h3>Total</h3>
+                <h3 id="total">Rs. {{getTotalPrice()}}</h3>
+            </div>
+            <div style="display: flex;">
+                <button class="BuyBtn" (click)="buyProducts()">Buy</button>
+                <button class="BuyBtn" (click)="emptyCart()">Empty Cart</button>
+            </div>          
+        </div>
+    </div>
+</ng-container>
+
+
+<!-- <ng-container *ngIf="cartData.length ==0">
+    <div id="cartDiv">
+        <div class="sidebar">
+            <div class="head">
+                <p>My Cart</p>
+            </div>
+            <img src="../../assets/emptycart.png" alt="">
+        </div>
+    </div>
+</ng-container> -->
+
+<ng-container *ngIf="cartData.length === 0">
+    <div id="cartDiv">
+      <mat-card class="sidebar">
+        <mat-card-header class="head">
+          <mat-card-title>My Cart</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img src="../../assets/emptycart.png" alt="Empty Cart Image">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>

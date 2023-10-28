@@ -1,0 +1,37 @@
+<ng-container *ngIf="cartData.length !=0">
+    <div id="cartDiv">
+        <div class="sidebar">
+            <div class="head">
+                <p>Order Details</p>
+            </div>
+            <div style="margin: 20px 0">
+                <div class="order1"><span>Order Id :</span> {{getOrderId()}}</div>
+                <div class="order1"><span>Order Date :</span> {{ getDate() | date }} </div>
+                <div class="order1"><span>Items ordered :</span></div>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>                      
+                            <th></th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cartData">
+                            <td style="display: flex;justify-content: center;">
+                                <div class='row-img'>
+                                    <img class='rowimg' [src]="item.product.image">
+                                </div>
+                            </td>
+                            <td style="text-align: center;">{{item.product.name}}</td>
+                            <td style="width: 12%; text-align: center;">{{item.count}}</td>
+                            <td style="width: 12%;text-align: center;">{{item.totalPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="orderprice">Total Amount : <span> Rs. {{getTotalPrice()}}</span></div>
+            </div>
+        </div>
+    </div>
+</ng-container>

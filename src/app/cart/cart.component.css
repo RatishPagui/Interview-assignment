@@ -1,0 +1,85 @@
+#cartDiv{
+    width:95%;
+    margin: 25px 2.5%;
+}
+
+.sidebar {
+    border-radius: 5px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.head {
+    background-color: #000058;
+    border-radius: 3px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 0px;
+    border-top: 1px solid black;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid white;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+
+.row-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowimg {
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50px;
+}
+
+table{
+    width: 100%;
+}
+table td i{
+    margin: 8px;
+}
+button{
+    cursor: pointer;
+}
+table td input{
+    border: none;
+    text-align: center;
+    padding: 5px;
+}
+
+.BuyBtn {
+    width: 20%;
+    margin: 15px auto;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+
